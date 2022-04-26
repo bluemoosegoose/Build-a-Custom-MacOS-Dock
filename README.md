@@ -4,6 +4,7 @@ How to Build a Custom MacOS Dock
 1.	Download and install the latest version of dockutil: https://github.com/kcrawford/dockutil/releases
 2.	Upload the package to Jamf Pro (i.e.. “dockutil-3.0.2.pkg”)
 3.	Create a bash script that will utilize the dockutil binary:
+
 #!/bin/bash
  
 #Make time for other stuff to finish
