@@ -19,7 +19,7 @@ In my environment I have the Custom Dock to install on an Enrollment Trigger dur
 2.	Upload the package to Jamf Pro (i.e.. “dockutil-3.0.2.pkg”)
 3.	Create a bash script that will utilize the dockutil binary: See **"BuildtheDock.sh"** in the repository.
 4.	Feel free to modify lines 19+ of "buildthedock.sh" to create your own custom dock. 
-5.	If you want to add a webloc web shortcut to the dock with a custom icon you need to create the .webloc file on your test mac and place the file in the filepath location of your choosing, package it with Jamf Composer, upload the PKG to Jamf Pro and then add that PKG to the main Policy (Step 18 of this guide). Ensure the line in your  “BuildtheDock.sh” looks like this (and replace the filepath and name with your specific webloc):
+5.	If you want to add a webloc web shortcut to the dock with a custom icon you need to create the .webloc file on your test mac and place the file in the filepath location of your choosing, package it with Jamf Composer, upload the PKG to Jamf Pro and then add that PKG to the main Policy (Step 20 of this guide). Ensure the line in your  “BuildtheDock.sh” looks like this (and replace the filepath and name with your specific webloc):
 
 $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.webloc' --label 'Office 365' --no-restart
 
