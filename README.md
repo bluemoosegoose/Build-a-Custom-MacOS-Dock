@@ -80,6 +80,9 @@ Deleting the /Users/$currentuser/dockscrap.txt file will allow the launchd to ru
 4. In this Policy you should have your 3+ PKG's (outlined in the original Policy explained above) and 2 scripts: "A_Delete Dockscrap.sh" (must run 1st) and "BuildtheDock_ReLoad LaunchAgent" (must run 2nd). In the Policy, set both scripts to run "After" the PKG's install. 
 6. Scope the to Self-Service.
 
+![image](https://user-images.githubusercontent.com/104439807/165342728-a6e54d98-2805-4991-b007-1bc4667f4c4c.png)
+
+
 **Endnotes:**
 
 To follow along with the install as the policy is being run:
