@@ -5,9 +5,9 @@
 1.	Download and install the latest version of dockutil: https://github.com/kcrawford/dockutil/releases
 2.	Upload the package to Jamf Pro (i.e.. “dockutil-3.0.2.pkg”)
 3.	Create a bash script that will utilize the dockutil binary: See "BuildtheDock.sh" in the repository.
-4.	After modifying the script to create a custom dock for your needs, name it “BuildtheDock.sh”
-5.	Use Jamf Composer to create a .pkg of that script and name it “BuildtheDockScript.pkg”
-6.	Upload “BuildtheDockScript.pkg” to Jamf Pro.
+4.	Feel free to modify lines 19+ to create your own custom dock. Keep the file name “BuildtheDock.sh”
+6.	Use Jamf Composer to create a .pkg of that script and name it “BuildtheDockScript.pkg”
+7.	Upload “BuildtheDockScript.pkg” to Jamf Pro.
 
 **Create a Launch Agent (.plist) that will run the above script when loaded**
 
