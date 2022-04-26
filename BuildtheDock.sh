@@ -15,7 +15,8 @@ $DOCKUTIL_BINARY --remove all --no-restart
 #sleep for 2 seconds
 $sleep 2
 
-#Build the Dock
+#Build Your Custom Dock
+#Modify Apps below for your specific needs. Be sure to test.
 $DOCKUTIL_BINARY --add '/System/Applications/Launchpad.app' --allhomes --no-restart
 $DOCKUTIL_BINARY --add '/System/Applications/System Preferences.app' --allhomes --no-restart
 $DOCKUTIL_BINARY --add '/Applications/Self Service.app' --allhomes --no-restart
