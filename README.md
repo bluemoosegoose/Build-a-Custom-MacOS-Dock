@@ -1,8 +1,14 @@
 # Build-a-Custom-Dock
 
--This Guide will allow you to craft a custom MacOS dock for your environment. I wrote this to be deployed from Jamf Pro but you can use any MDM.
--The custom dock will be built once on first login for any user that logs in to the Mac. It will not run again automatically, which is the intended behavior because we want our users to have our custom dock during onboarding and then give them the ability to make changes.
--
+This Guide will allow you to craft a custom MacOS dock for your environment. I wrote this to be deployed from Jamf Pro but you can use any MDM.
+
+The custom dock will be built once, on first login, for any user that logs in to the Mac.
+
+After the dock has been built once, it will not run again automatically, which is the intended behavior because we want our users to have our custom dock during onboarding and then give them the ability to make changes.
+
+If you want to re-run the custom dock again, this is possible and can be scoped to a policy or placed in Self-Service.
+
+In my environment I have the Custom Dock to install on an Enrollment Trigger and then it's also available in Self-Service for Users to run again anytime they want.
 
 **How to Build a Custom MacOS Dock**
 
