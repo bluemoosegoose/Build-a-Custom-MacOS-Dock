@@ -1,13 +1,22 @@
 # Build-a-Custom-Dock
 
+-This Guide will allow you to craft a custom MacOS dock for your environment. I wrote this to be deployed from Jamf Pro but you can use any MDM.
+-The custom dock will be built once on first login for any user that logs in to the Mac. It will not run again automatically, which is the intended behavior because we want our users to have our custom dock during onboarding and then give them the ability to make changes.
+-
+
 **How to Build a Custom MacOS Dock**
 
 1.	Download and install the latest version of dockutil: https://github.com/kcrawford/dockutil/releases
 2.	Upload the package to Jamf Pro (i.e.. “dockutil-3.0.2.pkg”)
-3.	Create a bash script that will utilize the dockutil binary: See "BuildtheDock.sh" in the repository.
-4.	Feel free to modify lines 19+ to create your own custom dock. Keep the file name “BuildtheDock.sh”
-6.	Use Jamf Composer to create a .pkg of that script and name it “BuildtheDockScript.pkg”
-7.	Upload “BuildtheDockScript.pkg” to Jamf Pro.
+3.	Create a bash script that will utilize the dockutil binary: See **"BuildtheDock.sh"** in the repository.
+4.	Feel free to modify lines 19+ to create your own custom dock. 
+5.	If you want to add a webloc to the dock you need to create the .webloc file on your test mac and place the file in the filepath location of your choosing, package it with composer, upload the PKG to Jamf and add that PKG to the main Policy (Step 18 of this guide). Ensure the line in your  “BuildtheDock.sh” looks like this (replacing the filepath to your specific webloc):
+
+$DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.webloc' --label 'Office 365' --no-restart
+
+6.	Name the file “BuildtheDock.sh”
+7.	Use Jamf Composer to create a .pkg of that script and name it “BuildtheDockScript.pkg”
+8.	Upload “BuildtheDockScript.pkg” to Jamf Pro.
 
 **Create a Launch Agent (.plist) that will run the above script when loaded**
 
@@ -28,23 +37,32 @@
 **Putting it all together**
 
 17.	Create a Jamf Policy and title it “Build Custom Dock”
-18.	Attach the 3 packages we just created:
+18.	Attach the 3 packages we just created (or 4+ if you have weblocs in your script):
 
 1 -->	Dockutil-3.0.2.pkg
 2 -->	Buildadockagent.pkg
 3 -->	BuildtheDockScript.pkg
+4 --> Office365.webloc.pkg (optional)
+
+![image](https://user-images.githubusercontent.com/104439807/165319011-d4cc4cba-e839-47f4-b137-36f5c62780d6.png)
+
 
 19.	Attach the Script “BuildtheDock_Reload LaunchAgent” and set the Priority to run After other actions
-20.	Scope the Policy to your devices. This can be run from Self-Service or Custom Trigger. It can be re-run whenever needed.
+20.	Scope the Policy to your devices to run on a Custom Trigger.
 
-Endnotes:
+**How to Re-load the Dock**
+
+1. Upload "A_Delete Dockscrap.sh" to Jamf Pro.
+2. Create a Policy to...
+
+**Endnotes:**
+
 To follow along with the install as the policy is being run:
+
 Watch dockutil binary get installed here: /usr/local/bin/dockutil
 Watch the "BuildtheDock.sh" file get installed here: /Library/Scripts/BuildtheDock.sh
 Watch the  .plist file get installed here: /Library/LaunchAgents/com.matt.buildadock.plist
 
-If you want to add a webloc to the dock you need to create the .webloc file, package it with composer, upload the PKG to Jamf, add that PKG to the main Policy, ensure your  “BuildtheDock.sh” looks like this: 
-$DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.webloc' --label 'Office 365' --no-restart
 
 
 
