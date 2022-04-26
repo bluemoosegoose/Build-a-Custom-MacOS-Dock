@@ -45,15 +45,19 @@ $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.weblo
 17.	Create a Jamf Policy and title it “Build Custom Dock”
 18.	Attach the 3 packages we just created (or 4+ if you have weblocs in your script):
 
-1. Dockutil-3.0.2.pkg
-2. Buildadockagent.pkg
-3. BuildtheDockScript.pkg
-4. Office365.webloc.pkg (optional)
+  #1. Dockutil-3.0.2.pkg
+  #2. Buildadockagent.pkg
+  #3. BuildtheDockScript.pkg
+  #4. Office365.webloc.pkg (optional)
 
 ![image](https://user-images.githubusercontent.com/104439807/165319011-d4cc4cba-e839-47f4-b137-36f5c62780d6.png)
 
 
 19.	Attach the Script “BuildtheDock_Reload LaunchAgent” and set the Priority to run After other actions
+
+![image](https://user-images.githubusercontent.com/104439807/165331996-6653c5b4-f49a-4807-a0c6-e56278e761f9.png)
+
+
 20.	Scope the Policy to your devices to run on a Custom Trigger.
 
 **How to Re-load the Dock**
