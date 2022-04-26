@@ -1,6 +1,6 @@
 # Build-a-Custom-Dock
 
-This Guide will allow you to craft a custom MacOS dock for your environment. I wrote this to be deployed from Jamf Pro but you can use any MDM.
+This Guide allows you to craft a custom MacOS dock for your environment. I wrote this to be deployed from Jamf Pro but you can use any MDM.
 
 The custom dock will be built once, on first login, for any user that logs in to the Mac.
 
@@ -8,7 +8,7 @@ After the dock has been built once, it will not run again automatically, which i
 
 If you want to re-run the custom dock again, this is possible and can be scoped to a policy or placed in Self-Service.
 
-In my environment I have the Custom Dock to install on an Enrollment Trigger and then it's also available in Self-Service for Users to run again anytime they want.
+In my environment I have the Custom Dock to install on an Enrollment Trigger and then I also have it available in Self-Service for Users to run again anytime they want.
 
 **How to Build a Custom MacOS Dock**
 
@@ -45,10 +45,10 @@ $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.weblo
 17.	Create a Jamf Policy and title it “Build Custom Dock”
 18.	Attach the 3 packages we just created (or 4+ if you have weblocs in your script):
 
-1 -->	Dockutil-3.0.2.pkg
-2 -->	Buildadockagent.pkg
-3 -->	BuildtheDockScript.pkg
-4 --> Office365.webloc.pkg (optional)
+1. Dockutil-3.0.2.pkg
+2. Buildadockagent.pkg
+3. BuildtheDockScript.pkg
+4. Office365.webloc.pkg (optional)
 
 ![image](https://user-images.githubusercontent.com/104439807/165319011-d4cc4cba-e839-47f4-b137-36f5c62780d6.png)
 
@@ -65,9 +65,9 @@ $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.weblo
 
 To follow along with the install as the policy is being run:
 
-Watch dockutil binary get installed here: /usr/local/bin/dockutil
-Watch the "BuildtheDock.sh" file get installed here: /Library/Scripts/BuildtheDock.sh
-Watch the  .plist file get installed here: /Library/LaunchAgents/com.matt.buildadock.plist
+1. Watch dockutil binary get installed here: /usr/local/bin/dockutil
+2. Watch the "BuildtheDock.sh" file get installed here: /Library/Scripts/BuildtheDock.sh
+3. Watch the  .plist file get installed here: /Library/LaunchAgents/com.matt.buildadock.plist
 
 
 
