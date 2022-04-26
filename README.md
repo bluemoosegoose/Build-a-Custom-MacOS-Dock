@@ -12,11 +12,6 @@ If you want to re-run the custom dock again, this is possible and can be scoped 
 
 In my environment I have the Custom Dock to install on an Enrollment Trigger during onboarding. Then I also have it available in Self-Service for Users to run again anytime they want.
 
-Huge shoutout to @ryangball for inspiring me to create this based on this (now deprecated) project!
-
-https://github.com/ryangball/DockBuilder. 
-
-I used this for a few years with good success but it is no longer working in Monterey or being supported. I used the principles from his scripting to create what you see here. 
 
 **How to Build a Custom MacOS Dock**
 
@@ -91,3 +86,6 @@ To follow along with the install as the policy is being run:
 2. Watch the "BuildtheDock.sh" file get installed here: /Library/Scripts/BuildtheDock.sh
 3. Watch the  .plist file get installed here: /Library/LaunchAgents/com.matt.buildadock.plist
 4. Watch dockscrap.txt file get installed here : /Users/$currentuser/dockscrap.txt
+
+
+Huge shoutout to https://github.com/ryangball for inspiring me to create this based on his DockBuilder Project. Dockbuilder is now deprecated but can be found here: https://github.com/ryangball/DockBuilder. I used it for a few years with good success but it is no longer being supported or working in MacOS Monterey. I used the principles from his scripting to create my current project. We're also utilizing his Package Creator Tool which still works great!
