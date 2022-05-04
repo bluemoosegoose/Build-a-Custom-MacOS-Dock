@@ -17,8 +17,11 @@ In my environment I have the Custom Dock to install on an Enrollment Trigger dur
 
 1.	Download and install the latest version of dockutil: https://github.com/kcrawford/dockutil/releases
 2.	Upload the package to Jamf Pro (i.e.. “dockutil-3.0.2.pkg”)
-3.	Create a bash script that will utilize the dockutil binary: See **"BuildtheDock.sh"** in the repository.
-4.	Feel free to modify lines 19+ of "buildthedock.sh" to create your own custom dock. 
+
+**Create a bash script that will utilize the dockutil binary**
+
+3.	Download **"BuildtheDock.sh"** from the repository.
+4.	Feel free to modify lines 46+ of "buildthedock.sh" to create your own custom dock. 
 5.	If you want to add a webloc web shortcut to the dock with a custom icon you need to create the .webloc file on your test mac and place the file in the filepath location of your choosing, package it with Jamf Composer, upload the PKG to Jamf Pro and then add that PKG to the main Policy (Step 20 of this guide). Ensure the line in your  “BuildtheDock.sh” looks like this (and replace the filepath and name with your specific webloc):
 
 $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.webloc' --label 'Office 365' --no-restart
@@ -41,7 +44,7 @@ $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.weblo
 
 **Create a bash script to run the launch agent as the current user**
 
-18.	Upload “BuildtheDock_ReLoad LaunchAgent.sh" from this repository into your Jamf Pro.
+18.	Upload **“BuildtheDock_ReLoad LaunchAgent.sh"** from this repository into your Jamf Pro.
 
 **Putting it all together**
 
@@ -56,7 +59,7 @@ $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.weblo
 ![image](https://user-images.githubusercontent.com/104439807/165319011-d4cc4cba-e839-47f4-b137-36f5c62780d6.png)
 
 
-21.	Attach the Script “BuildtheDock_Reload LaunchAgent” and set the Priority to run After other actions
+21.	Attach the Script **“BuildtheDock_Reload LaunchAgent.sh”** and set the Priority to run After other actions.
 
 ![image](https://user-images.githubusercontent.com/104439807/165331996-6653c5b4-f49a-4807-a0c6-e56278e761f9.png)
 
@@ -67,7 +70,7 @@ $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.weblo
 
 **How to Re-load the Dock Anytime you Want**
 
-Deleting the /Users/$currentuser/dockscrap.txt file will allow the launchd to run at User logon which will rebuild the dock again. You can automate this in Jamf Pro to reload the dock as many times as you want by doing the following:
+Deleting the "dockscrap.txt" file from "/Users/$currentuser" will allow the launchd to run at User logon which will rebuild the dock again. The It will also recreate the "dockscrap.txt" file. You can automate this in Jamf Pro to reload the dock as many times as you want by doing the following:
 
 1. Upload "A_Delete Dockscrap.sh" (found in this repository) to Jamf Pro.
 2. Clone your "Build Custom Dock" Policy. Name it something else...like "Build Custom Dock - Self Service"
@@ -86,3 +89,4 @@ To follow along with the install as the policy is being run:
 2. Watch the "BuildtheDock.sh" file get installed here: /Library/Scripts/BuildtheDock.sh
 3. Watch the  .plist file get installed here: /Library/LaunchAgents/com.matt.buildadock.plist
 4. Watch dockscrap.txt file get installed here : /Users/$currentuser/dockscrap.txt
+5. Check the log at: /Users/$currentuser/docklog.txt
