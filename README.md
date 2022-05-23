@@ -2,7 +2,7 @@
 
 This Guide allows you to craft a custom MacOS dock for your environment. I wrote this to be deployed from Jamf Pro but you can use any MDM.
 
-Verified working on Monterey 12.3.1 and should be backwards compatible.
+Verified working on Monterey 12.4 and is backwards compatible to Catalina.
 
 The custom dock will be built once, on first login, for any user that logs in to the Mac.
 
