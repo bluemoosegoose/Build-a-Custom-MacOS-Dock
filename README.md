@@ -26,21 +26,21 @@ In my environment I have the Custom Dock to install on an Enrollment Trigger dur
 
 $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.webloc' --label 'Office 365' --no-restart
 
-6.	Name the file “BuildtheDock.sh”
-7.	Use Jamf Composer to create a .pkg of that script and name it “BuildtheDockScript.pkg”
-8.	Upload “BuildtheDockScript.pkg” to Jamf Pro.
+6.	Name the file “BuildtheDock.sh” and place it in "/Library/Scripts".
+7.	Drag and drop “BuildtheDock.sh” from "/Library/Scripts" (this is where it will be installed later on) into Jamf Composer under "Sources". Make sure to drill down to "BuildtheDock.sh" and assign Root permissions of 775 (optionally change for your environment). Click "Build as PKG" and name it “BuildtheDockScript.pkg”.
+8.	Upload “BuildtheDockScript.pkg” you just created to Jamf Pro.
 
 **Create a Launch Agent (.plist) that will run the above script when loaded**
 
 9.	Download launchd Package Creator: https://github.com/ryangball/launchd-package-creator
-10.	Install and open launchd Package Creator
+10.	Install and open launchd Package Creator.
 11.	Choose “Launch Agent” and name the Identifier “com.matt.buildadock”
 12.	Version: “1.0”
 13.	Click “Target Path” and navigate to the location you saved “BuildtheDock.sh”
 14.	Check “Package the Target at /Library/Scripts”
 15.	Check “RunAtLoad”
 16.	Click “Create PKG” and name it “buildadockagent.pkg”
-17.	Upload the PKG you just created to Jamf
+17.	Upload the PKG you just created to Jamf.
 
 **Create a bash script to run the launch agent as the current user**
 
