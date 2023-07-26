@@ -2,7 +2,7 @@
 
 This Guide allows you to craft a custom MacOS dock for your environment. I wrote this to be deployed from Jamf Pro but you can use any MDM.
 
-Verified working on Monterey 12.4 and is backwards compatible to Catalina.
+Verified working on Ventura 13.4.1 (c) and is backwards compatible to Catalina.
 
 The custom dock will be built once, on first login, for any user that logs in to the Mac.
 
@@ -39,8 +39,8 @@ $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.weblo
 13.	Click “Target Path” and navigate to the location you saved “BuildtheDock.sh”
 14.	Check “Package the Target at /Library/Scripts”
 15.	Check “RunAtLoad”
-16.	Click “Create PKG” and name it “buildadockagent.pkg”
-17.	Upload the PKG you just created to Jamf.
+16.	Click “Create PKG”, name it “buildadockagent” and save it to your Downloads (or some other location you can access) Verify it created successfully in this location.
+17.	Upload "buildadockagent.pkg" to Jamf.
 
 **Create a bash script to run the launch agent as the current user**
 
@@ -70,13 +70,13 @@ $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.weblo
 
 **How to Re-load the Dock Anytime you Want**
 
-Deleting the "dockscrap.txt" file from "/Users/$currentuser" will allow the launchd to run at User logon which will rebuild the dock again. The It will also recreate the "dockscrap.txt" file. You can automate this in Jamf Pro to reload the dock as many times as you want by doing the following:
+Deleting the "dockscrap.txt" file from "/Users/$currentuser" will allow the launchd to run at User logon which will rebuild the dock again (and recreate the "dockscrap.txt" file). You can automate this in Jamf Pro to reload the dock as many times as you want by doing the following:
 
 1. Upload "A_Delete Dockscrap.sh" (found in this repository) to Jamf Pro.
 2. Clone your "Build Custom Dock" Policy. Name it something else...like "Build Custom Dock - Self Service"
 3. Add the "A_Delete Dockscrap.sh" to the policy. 
-4. In this Policy you should have your 3+ PKG's (outlined in the original Policy explained above) and 2 scripts: "A_Delete Dockscrap.sh" (must run 1st) and "BuildtheDock_ReLoad LaunchAgent" (must run 2nd). In the Policy, set both scripts to run "After" the PKG's install. 
-6. Scope the to Self-Service.
+4. In this Policy you should have your 3+ PKG's (outlined in the original Policy explained above) and 2 scripts: "A_Delete Dockscrap.sh" (must run 1st) and "BuildtheDock_ReLoad LaunchAgent" (must run 2nd). In the Policy, set both scripts to run "After" the PKG's install. It's important to keep the naming convention as just described, or else Jamf will not run the scripts in the correct order and it will fail.
+6. Scope to Self-Service.
 
 ![image](https://user-images.githubusercontent.com/104439807/165342728-a6e54d98-2805-4991-b007-1bc4667f4c4c.png)
 
