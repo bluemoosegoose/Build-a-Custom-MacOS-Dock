@@ -44,9 +44,9 @@ $sleep 2
 
 #Build the Dock
 $DOCKUTIL_BINARY --add '/System/Applications/Launchpad.app' --allhomes --no-restart
-$DOCKUTIL_BINARY --add '/System/Applications/System Preferences.app' --allhomes --no-restart
+$DOCKUTIL_BINARY --add '/System/Applications/System Settings.app' --allhomes --no-restart
 $DOCKUTIL_BINARY --add '/Applications/Self Service.app' --allhomes --no-restart
-$DOCKUTIL_BINARY --add '/Applications/Safari.app' --allhomes --no-restart
+$DOCKUTIL_BINARY --add '/System/Cryptexes/App/System/Applications/Safari.app' --allhomes --no-restart
 $DOCKUTIL_BINARY --add '/Applications/Firefox.app' --allhomes --no-restart
 $DOCKUTIL_BINARY --add '/Applications/Google Chrome.app' --allhomes --no-restart
 $DOCKUTIL_BINARY --add '/Library/Application Support/Dock Icons/Office 365.webloc' --label 'Office 365' --no-restart
