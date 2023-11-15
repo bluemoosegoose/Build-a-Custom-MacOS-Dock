@@ -2,7 +2,7 @@
 
 This Guide allows you to craft a custom MacOS dock for your environment. I wrote this to be deployed from Jamf Pro but you can use any MDM.
 
-Verified working on Ventura 13.4.1 (c) and is backwards compatible to Catalina.
+Verified working on Sonoma 14.1.1 and is backwards compatible to Catalina.
 
 The custom dock will be built once, on first login, for any user that logs in to the Mac.
 
